@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es2022", // Define para qual versão do JavaScript o TypeScript gera o código
+    "lib": ["es2023"], // Define quais tipos da biblioteca padrão o TypeScript conhece
+
+    "paths": {
+      "@/*": ["./src/*"] // Cria um alias de import
+    },
+
+    "module": "Node16", // Define o sistema de módulos que o TypeScript assume e gera
+    "esModuleInterop": true, // Permite usar import jwt from 'jsonwebtoken' e import bcrypt from 'bcrypt' em pacotes CommonJS
+    "forceConsistentCasingInFileNames": true, // Dá erro se você importar o mesmo arquivo com maiúsculas/minúsculas diferentes
+
+    "strict": true, // Liga um conjunto de verificações rigorosas: strictNullChecks
+    "skipLibCheck": true //
+  }
+}
