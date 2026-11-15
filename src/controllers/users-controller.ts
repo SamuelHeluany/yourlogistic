@@ -4,7 +4,7 @@ import { Request, Response } from "express";
 export class UsersController {
   async execute(request: Request, response: Response) {
     const body = request.body;
-    await createUserSchema.parseAsync(body);
+    await createUserSchema.parse(body);
 
     return response.json({ message: "ok" });
   }
