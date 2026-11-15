@@ -1,7 +1,11 @@
+import { createUserSchema } from "@/schema/users.js";
 import { Request, Response } from "express";
 
 export class UsersController {
-  execute(request: Request, response: Response) {
+  async execute(request: Request, response: Response) {
+    const body = request.body;
+    await createUserSchema.parseAsync(body);
+
     return response.json({ message: "ok" });
   }
 }
