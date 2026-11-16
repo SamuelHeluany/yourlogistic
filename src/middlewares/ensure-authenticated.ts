@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { verify } from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 import { authConfig } from "@/configs/auth.js";
 import { AppError } from "@/utils/app-error.js";
 
@@ -24,7 +24,7 @@ export function ensureAuthenticated(request: Request, response: Response, next: 
 
     // pega a role e o sub renomeia como user_id
     // verifica o token e o secret
-    const { role, sub: user_id } = verify(token, authConfig.jwt.secret) as TokenPayLoad;
+    const { role, sub: user_id } = jwt.verify(token, authConfig.jwt.secret) as TokenPayLoad;
 
     // adiciona o user dentro da requisição
     // esta inserindo o usuario dentro da requisição mas precisa tipar o usuário, criando no types/express.d.ts
