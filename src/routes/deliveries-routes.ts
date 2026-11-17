@@ -9,3 +9,4 @@ const deliveriesController = new DeliveriesController();
 // adiciona tambem a autorização do usuario, se ele for usuario com a role sale(vendedor), ele vai poder executar a rota deliveries
 deliveriesRoutes.use(ensureAuthenticated, verifyUserAuthorization(["sale"]));
 deliveriesRoutes.post("/", deliveriesController.execute);
+deliveriesRoutes.get("/", deliveriesController.index);
