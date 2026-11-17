@@ -15,6 +15,13 @@ export class DeliveryStatusController {
         id,
       },
     });
+    // Quando mudar o status, registra no log ja a primeira movimentação da entrega
+    await prisma.deliveryLog.create({
+      data: {
+        deliveryId: id,
+        description: status,
+      },
+    });
 
     return response.json();
   }
