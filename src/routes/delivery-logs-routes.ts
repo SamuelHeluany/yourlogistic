@@ -8,3 +8,5 @@ const deliveryLogsController = new DeliveryLogsController();
 
 // aplica a autenticação e autorização direto na rota, sem deixar que seja aplicado a todas as rotas
 deliveryLogsRoutes.post("/", ensureAuthenticated, verifyUserAuthorization(["sale"]), deliveryLogsController.create);
+
+deliveryLogsRoutes.get("/:delivery_id/show", ensureAuthenticated, verifyUserAuthorization(["sale", "costumer"]), deliveryLogsController.show);
