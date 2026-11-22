@@ -15,9 +15,7 @@ export class UsersController {
     });
 
     if (userWithProvidedEmail) {
-      throw new AppError(
-        "User email already exists, please provide a valid one.",
-      );
+      throw new AppError("User email already exists, please provide a valid one.");
     }
 
     // passa a senha e o 8(quantas vezes repete o processo de hash)
@@ -34,6 +32,6 @@ export class UsersController {
     // desestrutura do user e separa o password, passando um retorno sem o password para ficar mais seguro
     const { password: _, ...userWithoutPassword } = user;
 
-    return response.json(userWithoutPassword);
+    return response.status(201).json(userWithoutPassword);
   }
 }
