@@ -7,7 +7,8 @@
       "@/*": ["./src/*"] // Cria um alias de import
     },
 
-    "module": "Node16", // Define o sistema de módulos que o TypeScript assume e gera
+    "module": "NodeNext", // Define o sistema de módulos que o TypeScript assume e gera
+    "moduleResolution": "NodeNext",
     "esModuleInterop": true, // Permite usar import jwt from 'jsonwebtoken' e import bcrypt from 'bcrypt' em pacotes CommonJS
     "forceConsistentCasingInFileNames": true, // Dá erro se você importar o mesmo arquivo com maiúsculas/minúsculas diferentes
 
