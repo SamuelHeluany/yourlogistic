@@ -14,9 +14,7 @@ export function errorHandling(
   }
   // verifica se o erro é uma instancia do zod e responde com statuscode e o erro do zod
   if (error instanceof ZodError) {
-    return response
-      .status(400)
-      .json({ message: "Validation error", issues: error.format() });
+    return response.status(400).json({ message: "Validation error", issues: error.format() });
   }
 
   return response.status(500).json({ message: error.message });
