@@ -28,4 +28,16 @@ describe("UsersController", () => {
     //verifica se realmente o nome do usuario criado é o que foi pre definido na response
     expect(response.body.name).toBe("Test user");
   });
+
+  it("should throw an error if user with same email already exists", async () => {
+    const response = await request(app).post("/users").send({
+      name: "Duplicate users",
+      email: "testuser@teste.com",
+      password: "testpassword123",
+    });
+    // expera o status 400
+    expect(response.status).toBe(400);
+    // espera a mensagem de erro: "User email already exists, please provide a valid one."
+    expect(response.body.message).toBe("User email already exists, please provide a valid one.");
+  });
 });
