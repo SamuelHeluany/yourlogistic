@@ -3,7 +3,7 @@ import { prisma } from "@/database/prisma.js";
 import { afterAll, beforeAll, describe, expect, it } from "@jest/globals";
 import request from "supertest";
 
-describe("UsersController", () => {
+describe("CreateUserController", () => {
   const testEmail = "testuser@teste.com";
   // caso exista o teste de um teste anterior, deleta por email
   beforeAll(async () => {
