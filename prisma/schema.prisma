@@ -8,7 +8,7 @@ datasource db {
 }
 
 enum UserRole {
-  costumer
+  customer
   sale
 }
 
@@ -23,7 +23,7 @@ model User {
   name String
   email String
   password String
-  role UserRole @default(costumer)
+  role UserRole @default(customer)
   createdAt DateTime @default(now()) @map("created_At")
   updatedAt DateTime? @updatedAt @map("updated_At")
 
@@ -47,7 +47,7 @@ model Delivery {
 model DeliveryLog {
   id String @id @default(uuid())
   deliveryId String @map("delivery_id")
-  delivery Delivery @relation(fields:[deliveryId], references: [id])
+  delivery Delivery @relation(fields:[deliveryId], references: [id], onDelete: Cascade)
   description String
   createdAt DateTime @default(now()) @map("created_At")
   updatedAt DateTime? @updatedAt @map("updated_At")
