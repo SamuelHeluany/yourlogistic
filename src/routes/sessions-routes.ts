@@ -1,4 +1,4 @@
-import { SessionsController } from "@/controllers/sessions-constroller.js";
+import { SessionsController } from "@/controllers/sessions-controller.js";
 import { Router } from "express";
 
 export const sessionRoutes = Router();
