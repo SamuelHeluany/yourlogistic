@@ -1,5 +1,4 @@
 // classe de erro passando a mensagem e o statuscode
-
 export class AppError {
   message: string;
   statusCode: number;
