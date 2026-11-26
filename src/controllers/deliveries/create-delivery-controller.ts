@@ -1,5 +1,5 @@
 import { prisma } from "@/database/prisma.js";
-import { deliveriesSchema } from "@/schema/deliveries.js";
+import { deliveriesSchema } from "@/schema/deliveries/create-delivery.js";
 import { AppError } from "@/utils/app-error.js";
 import { Request, Response } from "express";
 

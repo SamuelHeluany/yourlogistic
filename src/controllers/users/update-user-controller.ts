@@ -6,10 +6,10 @@ import { hash } from "bcrypt";
 import { Request, Response } from "express";
 import { ZodError } from "zod";
 
-type UpdateUserRouteParams = { userId: string };
+// type UpdateUserRouteParams = { userId: string };
 
 export class UpdateUserController {
-  async execute(request: Request<UpdateUserRouteParams>, response: Response) {
+  async execute(request: Request, response: Response) {
     try {
       const userId = request.params?.userId;
 
@@ -51,7 +51,7 @@ export class UpdateUserController {
       if (error instanceof ZodError) {
         throw new AppError(error.issues.map((i) => i.message).join(", "), 400);
       }
-      throw error;
+      throw new AppError("Server error.", 500);
     }
   }
 }

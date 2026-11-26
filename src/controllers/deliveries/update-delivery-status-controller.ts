@@ -1,5 +1,5 @@
 import { prisma } from "@/database/prisma.js";
-import { paramsSchema, statusSchema } from "@/schema/delivery-status.js";
+import { paramsSchema, statusSchema } from "@/schema/deliveries/delivery-status.js";
 import { Request, Response } from "express";
 
 export class DeliveryStatusController {
